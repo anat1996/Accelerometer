@@ -45,4 +45,13 @@
         android:layout_marginTop="68dp"
         android:textStyle="bold"
         android:textColor="#FF0000"/>
+
+    <ImageView
+        android:id="@+id/smurf_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        tools:context=".MainActivity"
+        android:background="@drawable/smurf_anim"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

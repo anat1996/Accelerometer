@@ -1,12 +1,15 @@
 package acceler.acceler;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
@@ -14,6 +17,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private SensorManager mSensorManager;
     private Sensor mSensor;
+    AnimationDrawable smurf;
+    boolean isStarted;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +35,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         mSensorManager.registerListener(this,mSensor,SensorManager.SENSOR_DELAY_NORMAL);//register the sensor using one of the SensorManager's public methods, registerListener. This method accepts three arguments, the activity's context, a sensor, and the rate at which sensor events are delivered to us.
 
         setContentView(R.layout.activity_main);
+        ImageView smurfImage = (ImageView) findViewById(R.id.smurf_image);
+        smurfImage.setBackgroundResource(R.drawable.smurf_anim);
+        smurf = (AnimationDrawable) smurfImage.getBackground();
+
 
 
     }
@@ -64,10 +75,23 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         TV.setText("y: "+event.values[1]);
         TV = (TextView) findViewById(R.id.z);
         TV.setText("z: "+event.values[2]);
-
     }
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            if (isStarted) {
+                smurf.stop();
+                isStarted = false;
+            } else {
+                smurf.start();
+                isStarted = true;
+            }
+            return true;
+        }
+        return super.onTouchEvent(event);
     }
 }
