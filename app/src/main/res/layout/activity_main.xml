@@ -9,49 +9,58 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="acceler.acceler.MainActivity">
-
-    <TextView
-        android:id="@+id/x"
-        android:text="@string/x"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:layout_marginLeft="5dip"
-        android:textSize="20dip"
-        android:textStyle="bold"
-        android:textColor="#00FF00"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/x_text"
+            android:text="@string/x_string"
+            android:layout_gravity="left"
+            android:layout_weight="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:textSize="20dip"
+            android:textStyle="bold"
+            android:textColor="#00FF00"
+            android:textAlignment="center"/>
 
-    <TextView
-        android:id="@+id/y"
-        android:text="@string/y"
-        android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:layout_marginLeft="5dip"
-        android:textSize="20dip"
-        android:layout_below="@+id/x"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="14dp"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimaryDark"/>
+        <TextView
+            android:id="@+id/y_text"
+            android:text="@string/y_string"
+            android:textAlignment="center"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:textSize="20dip"
 
-    <TextView
-        android:id="@+id/z"
-        android:text="@string/z"
-        android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:layout_marginLeft="5dip"
-        android:textSize="20dip"
-        android:layout_alignTop="@+id/y"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="68dp"
-        android:textStyle="bold"
-        android:textColor="#FF0000"/>
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <TextView
+            android:id="@+id/z_text"
+            android:textAlignment="center"
+            android:text="@string/z_string"
+            android:layout_weight="3"
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dip"
+            android:textSize="20dip"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:textColor="#FF0000"/>
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/smurf_image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         tools:context=".MainActivity"
         android:background="@drawable/smurf_anim"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
