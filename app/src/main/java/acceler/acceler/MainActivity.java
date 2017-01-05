@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     boolean isStarted;
     MediaPlayer mediaPlayer;
     Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 left=false;
             }
             smurfImage.setX(smurfImage.getX()+6);
-        }else if(x_value > 5 & y_value < 2){
+        }else if(x_value > 5 & y_value < -2){
             if(left==false){
 
                 smurfImage.setX(smurfImage.getX()-6);
